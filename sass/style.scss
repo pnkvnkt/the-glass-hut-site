@@ -1,0 +1,542 @@
+@import url(/fonts/style.css);
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+/* === MIXINS === */
+@mixin header-font {
+    font: {
+      family: 'DIN', sans-serif;
+      size: 16px;
+      weight: 300;
+    }
+    line-height: 2;
+    text-transform: uppercase;
+}
+
+@mixin footer-font {
+    font: {
+        family: 'Open Sans', sans-serif;
+        size: 14px;
+        weight: 300;
+    }
+    line-height: 1.8;
+    color: #FFFFFF;
+}
+  
+@mixin background-img($url, $color, $size) {
+    background-image: $url;
+    background-color: $color;
+    background-repeat: no-repeat;
+    background-size: $size;
+}
+
+
+/* === RESET === */
+
+*::after,
+*::before,
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* === HEADER === */
+
+header{
+    display: flex;
+    align-items: center;
+    height: 100px;
+    padding-left: 146px;
+    padding-right: 38px;
+
+    @include header-font;
+
+    .header__nav{
+        display: flex;
+        align-items: center;
+        margin-right: 172px;
+        margin-left: auto;
+
+        .nav__item{
+            margin-right: 36px;
+            color: #000000;
+            opacity: .6;
+            transition: .2s linear;
+
+            &:nth-last-child(2){
+                margin-right: 26px;
+            }
+
+            &:last-child{
+                margin-right: 0;
+                opacity: 1;
+            }
+
+            &:hover{
+                text-decoration: underline;
+                opacity: 1;
+            }
+
+            &:last-child:hover{
+                cursor: pointer;
+            }
+        }
+    }
+
+    .header__button{
+        padding: 16px 60px;
+        color: #FFFFFF;
+        background-color: #5b6460;
+        transition: .2s linear;
+
+        &:hover{
+            box-shadow: 0 0 3px black;
+        }
+    }
+}
+
+/* === INTRO === */
+
+.intro{
+    height: 795px;
+    position: relative;
+    padding-top: 95px;
+    @include background-img(url(images/main/intro-background.png), #5b7483, cover);
+    position: relative;
+    margin-bottom: 150px;
+
+    .intro__text{
+        margin-left: 40%;
+        margin-bottom: 150px;
+        width: max-content;
+        position: relative;
+        color: #FFFFFF;
+        
+        .intro__title{
+            font-family: 'Open Sans', sans-serif;
+            font-size: 70px;
+            font-weight: 300;
+        }
+
+        .intro__paragraph{
+            margin-right: 86px;
+            margin-left: auto;
+            margin-top: 34px;
+            width: 333px;
+
+            text-align: center;
+            font-family: 'Mulish';
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 28px;
+        }
+    }
+
+    .intro__nav{
+        margin: auto;
+        width: 113px;
+        height: 15px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 78px;
+
+        img:first-child{
+            margin-right: 30px;
+        }
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+// затемнение фона
+
+.intro:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:rgba(0, 0, 0, .2);
+}
+
+
+/* === CABINS === */
+
+.cabins{
+    display: flex;
+    margin-bottom: 150px;
+    .background-text__wrapper_cabins{
+        padding-top: 87px;
+        padding-left: 157px;
+        flex-basis: 50%;
+    }
+    .description-text_cabins{
+        width: 75%;
+    }
+    
+    .cabins__img{
+        width: 50%;
+    }
+}
+
+/* === DESRIPTION TEXT === */
+
+.description-text{
+    width: 50%;
+    color: #5B6460;
+
+    .description-text__title{
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 1;
+    }
+
+    .description-text__paragraph{
+        margin-top: 50px;
+        margin-bottom: 26px;
+
+        font-family:'Open Sans';
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.8;
+    }
+
+    .description-text__button{
+
+        text-decoration: underline;
+        font-family: 'Open Sans';
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.8;
+        color: #5B6460;
+        opacity: .8;
+        transition: .2s linear;
+
+        &:hover{
+            opacity: 1;
+        }
+    }
+}
+
+/* === GALLERY === */
+    
+.gallery{
+    display: flex;
+    margin-bottom: 150px;
+
+    .galerry__item{
+        flex-basis: 100%;
+        margin: 0 30px;
+
+        &:nth-child(2){
+            margin: 0;
+        }
+    }
+}
+
+/* === forest === */
+
+.forest{
+    height: 650px;
+    display: flex;
+
+    .forest__map{
+        @include background-img( url(images/main/forest-background.png), #a4a8a7, cover);
+        flex-basis: 50%;
+        height: 100%;
+        position: relative;
+    }
+
+    .desription-text__wrapper_forest{
+        flex-basis: 50%;
+        background-color: #E9ECE0;
+        padding-top: 150px;
+        padding-left: 110px;
+
+        
+        .description-text_forest{
+            width: 75%;
+        }
+    }
+}
+
+// затемнение фона
+
+.forest__map:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:rgba(0, 0, 0, .4);
+}
+
+// круги
+
+.circle_1{
+    width: 176px;
+    height: 176px;
+    background-color: #FFFFFF;
+    opacity: 0.15;
+    position: absolute;
+    left: 0; right: 60px; bottom: 0; top: 0;
+    margin: auto;
+    border-radius: 50%;
+}
+.circle_2{
+    width: 134px;
+    height: 134px;
+    background-color: #FFFFFF;
+    opacity: 0.25;
+    position: absolute;
+    left: 0; right: 60px; bottom: 0; top: 0;
+    margin: auto;
+    border-radius: 50%;
+}
+.circle_3{
+    width: 98px;
+    height: 98px;
+    background-color: #FFFFFF;
+    margin: auto;
+    position: absolute;
+    left: 0; right: 60px; bottom: 0; top: 0;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .map__pointer{
+        font-family: 'DIN', sans-serif;
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 1.25;
+        color: #333333;
+        text-transform: uppercase;
+        width: 71px;
+        text-align: center;
+    }
+
+}
+
+/* === FACILITIES === */
+
+.facilities{
+    background-color: #5B6460;
+    text-align: center;
+    padding-top: 87px;
+    padding-bottom: 137px;
+
+    .facilities__title{
+        font-family: 'Open Sans';
+        font-size: 40px;
+        font-weight: 300;
+        color: #FFFFFF;
+
+        margin-bottom: 74px;
+    }
+
+    .facilities__list{
+        display: flex;
+        justify-content: center;
+
+        .list__item{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-right: 134px;
+
+            &:last-child{
+                margin-right: 0;
+            }
+
+            .list__img{
+                height: 70px;
+            }
+
+            .list__title{
+                font-family: 'Open Sans';
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 1.5;
+                color: #FFFFFF;
+            }
+        }
+    }
+}
+
+/* === ABOUT US === */
+
+.about-us{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+
+    .about-us__img{
+        flex-basis: 50%;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+
+    .about-us__button{
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+        margin: auto;
+
+        width: 157px;
+        height: 157px;
+        border-radius: 50%;
+        background-color: #FFFFFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p{
+            font-family: 'DIN', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.25;
+            color: #333333;
+
+            opacity: .8;
+            transition: .2s linear;
+        }
+
+        &:hover{
+            cursor: pointer;
+            p{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+/* === FOOTER === */
+
+footer{
+    background-color: #5B6460;
+    padding: 100px 150px;
+    display: flex;
+
+    .footer__left{
+        width: 440px;
+        margin-right: auto;
+
+       .news{
+            .news__title{
+                @include footer-font;
+                font-weight: 600;
+
+                margin-bottom: 40px;
+            }
+            
+            .news__input-wrapper{
+                display: flex;
+
+                .news__input-form{
+                    border: none;
+                    background-color: transparent;
+                    width: 440px - 34px;
+
+                    @include footer-font;
+                    font-style: italic;
+                }
+
+                .news__button{
+                    border: none;
+                    background-color: transparent;
+                    width: 34px;
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .news__line{
+                width: 100%;
+                height: 1px;
+                background-color: #FFFFFF;
+                margin-top: 5px;
+                margin-bottom: 10px;
+            }
+
+            .news__text{
+                @include footer-font;
+            }
+        }
+
+       .copyrighted{
+        @include footer-font;
+        font-size: 14px;
+
+        margin-top: 70px;
+       }
+    }
+
+    .footer__right{
+
+        .footer__nav{
+            margin-bottom: 50px;
+
+            .nav__item_footer{
+                font-family: 'DIN', sans-serif;
+                font-size: 14px;
+                font-weight: 300;
+                line-height: 1.8;
+                color: #FFFFFF;
+                opacity: .8;
+                margin-right: 30px;
+                transition: .2s linear;
+
+                &:last-child{
+                    margin-right: 0;
+                }
+
+                &:hover{
+                    text-decoration: underline;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .footer__logos-wrapper{
+            display: flex;
+            margin-left: auto;
+            width: fit-content;
+
+            .footer__logo{
+                margin-right: 40px;
+
+                &:last-child{
+                    margin-right: 0;
+                }
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
